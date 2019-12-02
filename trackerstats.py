@@ -22,10 +22,14 @@ if __name__ == "__main__":
 
     DBMANAGER = DBManager(CONFIG['influxdb'])
 
-    IPTorrents = IPTorrents(DBMANAGER, CONFIG['trackers']['iptorrents'])
-    TorrentDay = TorrentDay(DBMANAGER, CONFIG['trackers']['torrentday'])
+    trackers = []
+
+    if CONFIG['trackers']['iptorrents']['enabled']:
+        trackers.append(IPTorrents(DBMANAGER, CONFIG['trackers']['iptorrents']))
+    if CONFIG['trackers']['torrentday']['enabled']:
+        trackers.append(TorrentDay(DBMANAGER, CONFIG['trackers']['torrentday']))
 
     while True:
-        IPTorrents.get_stats()
-        TorrentDay.get_stats()
+        for tracker in trackers:
+            tracker.get_stats()
         time.sleep(CONFIG['trackerstats']['polling_rate'])
