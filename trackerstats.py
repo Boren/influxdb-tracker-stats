@@ -6,6 +6,7 @@ from shutil import copyfile
 
 from trackerstats.dbmanager import DBManager
 from trackerstats.trackers.norbits import NorBits
+from trackerstats.trackers.nordicbits import NordicBits
 from trackerstats.trackers.iptorrents import IPTorrents
 from trackerstats.trackers.torrentday import TorrentDay
 
@@ -27,6 +28,8 @@ if __name__ == "__main__":
 
     if CONFIG['trackers']['norbits']['enabled']:
         trackers.append(NorBits(DBMANAGER, CONFIG['trackers']['norbits']))
+    if CONFIG['trackers']['nordicbits']['enabled']:
+        trackers.append(NordicBits(DBMANAGER, CONFIG['trackers']['nordicbits']))
     if CONFIG['trackers']['iptorrents']['enabled']:
         trackers.append(IPTorrents(DBMANAGER, CONFIG['trackers']['iptorrents']))
     if CONFIG['trackers']['torrentday']['enabled']:
