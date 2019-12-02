@@ -10,6 +10,10 @@ influxdb:
     password: root
 
 trackers:
+    norbits:
+      enabled: false
+      cookies:
+
     iptorrents:
       enabled: false
       cookies:

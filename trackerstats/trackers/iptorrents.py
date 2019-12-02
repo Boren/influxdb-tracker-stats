@@ -39,25 +39,20 @@ class IPTorrents(object):
             usertable = usersoup.find('table', class_='t1')
 
             for tablerow in usertable.find_all('tr'):
-                key = tablerow.find("th").string
+                key = tablerow.find("th").text
+                value = tablerow.find("td").text
 
                 if key == "Uploaded":
-                    upload = tablerow.find("td").string
+                    upload = tablerow.find("td").text
                     upload = upload[upload.find("(")+1:upload.find(" B)")]
                     upload = int(upload.replace(',', ''))
                 elif key == "Downloaded":
-                    download = tablerow.find("td").string
+                    download = tablerow.find("td").text
                     download = download[download.find("(")+1:download.find(" B)")]
                     download = int(download.replace(',', ''))
                 elif key == "Invites":
-                    invites = tablerow.find("td").text
-                    available_index = invites.find("Available: ")+11
-                    invites = invites[available_index:available_index+1]
-                    invites = int(invites)
-                elif key == "Invites":
-                    invites = tablerow.find("td")
-                    available_index = invites.find("Available: ")+11
-                    invites = invites[available_index:available_index+1]
+                    available_index = value.find("Available: ")+11
+                    invites = value[available_index:available_index+1]
                     invites = int(invites)
                 elif key == "Share ratio":
                     ratio = tablerow.find("td").find("font").find("font").text

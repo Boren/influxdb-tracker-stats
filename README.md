@@ -28,6 +28,7 @@ This project aims to save information from multiple trackers in InfluxDB in orde
 | Tracker    | Downloaded | Uploaded | Ratio | Invites | Current Downloads | Current Uploads | Bonus Points | Reseed | Hit-and-Run |
 |------------|:----------:|:--------:|:-----:|:-------:|:-----------------:|:---------------:|:------------:|:------:|:-----------:|
 | IPTorrents |      x     |     x    |   x   |    x    |         x         |        x        |       x      |        |             |
+| NorBits    |      x     |     x    |   x   |         |                   |                 |       x      |        |             |
 | TorrentDay |      x     |     x    |   x   |    x    |         x         |        x        |       x      |        |             |
 
 ## Usage

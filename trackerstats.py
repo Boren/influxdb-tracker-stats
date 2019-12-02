@@ -5,6 +5,7 @@ from os.path import abspath, dirname, join, exists
 from shutil import copyfile
 
 from trackerstats.dbmanager import DBManager
+from trackerstats.trackers.norbits import NorBits
 from trackerstats.trackers.iptorrents import IPTorrents
 from trackerstats.trackers.torrentday import TorrentDay
 
@@ -24,6 +25,8 @@ if __name__ == "__main__":
 
     trackers = []
 
+    if CONFIG['trackers']['norbits']['enabled']:
+        trackers.append(NorBits(DBMANAGER, CONFIG['trackers']['norbits']))
     if CONFIG['trackers']['iptorrents']['enabled']:
         trackers.append(IPTorrents(DBMANAGER, CONFIG['trackers']['iptorrents']))
     if CONFIG['trackers']['torrentday']['enabled']:
