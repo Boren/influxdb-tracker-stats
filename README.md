@@ -23,6 +23,13 @@
 It can sometimes be hard to keep track of ratios across multiple private trackers.
 This project aims to save information from multiple trackers in InfluxDB in order to create graphs and warnings in Grafana.
 
+## Tracker Support
+
+| Tracker    | Downloaded | Uploaded | Ratio | Invites | Current Downloads | Current Uploads | Bonus Points | Reseed | Hit-and-Run |
+|------------|:----------:|:--------:|:-----:|:-------:|:-----------------:|:---------------:|:------------:|:------:|:-----------:|
+| IPTorrents |      x     |     x    |   x   |    x    |         x         |        x        |       x      |        |             |
+| TorrentDay |      x     |     x    |   x   |    x    |         x         |        x        |       x      |        |             |
+
 ## Usage
 
 1. `pip install -r requirements.txt`
