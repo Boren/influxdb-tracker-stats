@@ -5,6 +5,7 @@ from os.path import abspath, dirname, join, exists
 from shutil import copyfile
 
 from trackerstats.dbmanager import DBManager
+from trackerstats.trackers.iptorrents import IPTorrents
 from trackerstats.trackers.torrentday import TorrentDay
 
 
@@ -20,8 +21,11 @@ if __name__ == "__main__":
         CONFIG = yaml.safe_load(f)
 
     DBMANAGER = DBManager(CONFIG['influxdb'])
+
+    IPTorrents = IPTorrents(DBMANAGER, CONFIG['trackers']['iptorrents'])
     TorrentDay = TorrentDay(DBMANAGER, CONFIG['trackers']['torrentday'])
 
     while True:
+        IPTorrents.get_stats()
         TorrentDay.get_stats()
         time.sleep(CONFIG['trackerstats']['polling_rate'])

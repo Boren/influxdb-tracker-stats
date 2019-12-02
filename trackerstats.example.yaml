@@ -12,8 +12,7 @@ influxdb:
 trackers:
     iptorrents:
       enabled: false
-      username:
-      password:
+      cookies:
 
     torrentday:
       enabled: false

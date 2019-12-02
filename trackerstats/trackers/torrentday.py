@@ -25,7 +25,7 @@ class TorrentDay(object):
                 cookies[key] = morsel.value
             response = s.get(self.base_url, cookies=cookies)
 
-            soup = BeautifulSoup(response.content, "html.parser")
+            soup = BeautifulSoup(response.content, "lxml")
             activity = soup.find(id="activityDiv").find_all("span")
 
             ratio = float(activity[1].string)
@@ -44,7 +44,7 @@ class TorrentDay(object):
             userprofilelink = soup.find(id="dropDownHdr").find("a")
 
             userresponse = s.get(self.base_url + userprofilelink['href'], cookies=cookies)
-            usersoup = BeautifulSoup(userresponse.content, "html.parser")
+            usersoup = BeautifulSoup(userresponse.content, "lxml")
             userdetails = usersoup.find(id="usrDetailsInfoBarSpans").find_all("span", class_="detailsInfoSpan")
 
             upload = humanfriendly.parse_size(userdetails[3].find("span").string)
