@@ -1,5 +1,5 @@
 from sys import exit
-from logging import getLogger
+import logging
 from influxdb import InfluxDBClient
 from requests.exceptions import ConnectionError
 from influxdb.exceptions import InfluxDBServerError
@@ -8,7 +8,7 @@ from influxdb.exceptions import InfluxDBServerError
 class DBManager(object):
     def __init__(self, server):
         self.server = server
-        self.logger = getLogger()
+        self.logger = logging.getLogger("dbmanager")
         if self.server["url"] == "influxdb.domain.tld":
             self.logger.critical("You have not configured your trackers.ini")
             exit()
