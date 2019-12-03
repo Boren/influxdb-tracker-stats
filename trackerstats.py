@@ -29,7 +29,7 @@ def load_config():
     return config
 
 def setup_logging():
-    with open('./logging.yaml', 'rt') as f:
+    with open('trackerstats/logging.yaml', 'rt') as f:
         config = yaml.safe_load(f.read())
     logging.config.dictConfig(config)
     coloredlogs.install()
