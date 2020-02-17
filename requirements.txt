@@ -1,5 +1,5 @@
 beautifulsoup4==4.8.2
-coloredlogs==10.0
+coloredlogs==14.0
 humanfriendly==6.0
 influxdb==5.2.3
 lxml==4.5.0
