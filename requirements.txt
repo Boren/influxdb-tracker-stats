@@ -1,6 +1,6 @@
 beautifulsoup4==4.9.0
 coloredlogs==14.0
-humanfriendly==8.1
+humanfriendly==8.2
 influxdb==5.2.3
 lxml==4.5.0
 pyyaml==5.3.1
