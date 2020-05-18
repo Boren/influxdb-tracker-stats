@@ -1,4 +1,4 @@
-beautifulsoup4==4.9.0
+beautifulsoup4==4.9.1
 coloredlogs==14.0
 humanfriendly==8.1
 influxdb==5.2.3
